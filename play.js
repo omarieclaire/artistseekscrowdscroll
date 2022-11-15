@@ -754,6 +754,10 @@ function windowOnLoad() {
       event.preventDefault();
       playSound(genSound);
 
+      const answerEvent = new CustomEvent('answer', { detail: {question : stateKey, value: chosenValue} });
+      
+      document.dispatchEvent(answerEvent);
+
       const chosenImageId = chosenValue + "Img";
       const chosenImageDOM = document.getElementById(chosenImageId);
       chosenImageDOM.classList.remove("cursorHand");
