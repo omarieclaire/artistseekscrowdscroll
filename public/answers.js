@@ -7,12 +7,12 @@ window.answers = answers;
 
 
 const questions = {
-    upOrDown: 'Art is the closest I’ve come to feeling that we might understandeach other. Like we might actually touch. Do you feel connected through art?',
+    upOrDown: 'Do you feel more connected to people through making art?',
     qSearchForPeople: 'How do you search for your audience? How do you reach for them?',
     qMoreFans: 'Do you want a bigger audience? Or stronger ties with a smaller audience? Or is what you have enough? Why?',
     qMaterialChange: 'Could you invite people more deeply into your work? How could you make space for them to materially change your art?',
     qDeepListen: 'In what ways do you listen to your audience? How do you know when they feel moved? When they feel left behind?',
-    qTransformWork: 'How far do you go in transforming your work to be understood? How far should you go? ',
+    qTransformWork: 'How far do you go in transforming your work to be understood? How far should you go?',
     qLoseEnergy: 'Is it worth it to reach people if you lose your own artistic vigor on the way?',
     darkOrJoy: 'Does your audience cocreate art with you?',
     outOrIn: 'Are you searching for connection?',
@@ -21,6 +21,8 @@ const questions = {
     morningOrNight: 'Will you delightedly translate your work to be understood?',
     unfoldOrCycle: 'Is public art a dialogue? Are you in conversation with other people?'
 }
+
+const yesNoQuestions = ['upOrDown', 'darkOrJoy', 'chaosOrCalm', 'forestOrMeadow', 'outOrIn', 'morningOrNight', 'unfoldOrCycle']
 
 
 let myAnswers = []
@@ -40,20 +42,20 @@ textAreas.forEach(id => {
 
 document.addEventListener('answer', (e) => {
     const answerMap = {
-        'up' : 'yes',
-        'down' : 'no',
-        'dark' : 'yes',
-        'joy' : 'no',
-        'chaos' : 'yes',
-        'calm' : 'no',
-        'forest' : 'yes',
-        'meadow' : 'no',
-        'out' : 'yes',
-        'in' : 'no',
-        'morning' : 'yes',
-        'night' : 'no',
-        'unfold' : 'yes',
-        'cycle' : 'no',
+        'up': 'yes',
+        'down': 'no',
+        'dark': 'yes',
+        'joy': 'no',
+        'chaos': 'yes',
+        'calm': 'no',
+        'forest': 'yes',
+        'meadow': 'no',
+        'out': 'yes',
+        'in': 'no',
+        'morning': 'yes',
+        'night': 'no',
+        'unfold': 'yes',
+        'cycle': 'no',
     }
 
     answers[e.detail.question] = answerMap[e.detail.value];
@@ -65,7 +67,7 @@ document.getElementById('findSongBtn').addEventListener('click', async () => {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            answerer,
+            answerer : answerer || 'Friend',
             answers
         })
     });
@@ -83,6 +85,10 @@ function renderGems(answers) {
 
     answers.forEach(({ id, answerer, questionID, answer, targetX, targetY }, idx) => {
 
+        if(!answer){
+            return
+        }
+
         if (!(questionID in questionss)) {
             questionss[questionID] = Math.random() * 360;
         }
@@ -93,9 +99,7 @@ function renderGems(answers) {
 
         gem.setAttribute('style', `--animationTime : ${Math.random() * 10}s; --baseHue: ${questionss[questionID]}deg;`)
 
-        // gem.src = `images/gems/${questionID}.png`
-        gem.src = `images/gems/upOrDown.png`
-
+        gem.src = `images/gems/gem.png`
 
         const container = document.createElement('div')
         container.classList.add('answer-gem_container')
@@ -103,6 +107,11 @@ function renderGems(answers) {
         const div = document.createElement('div');
         container.appendChild(div)
         div.classList.add('answer-gem')
+
+        if (yesNoQuestions.includes(questionID)) {
+            div.classList.add('yes-no')
+        }
+
         div.id = `answer-${id}`;
 
 
@@ -122,7 +131,7 @@ function renderGems(answers) {
         container.style.top = `${(targetY + (Math.random() - 0.5) / 5) * 100}%`
 
         container.style.setProperty('--slowMoveOffset', `${Math.random()}s`)
-        container.style.setProperty('--rotateShift',0)// `${Math.random() * 360}deg`)
+        container.style.setProperty('--rotateShift', 0)// `${Math.random() * 360}deg`)
         container.style.setProperty('--slowMoveTime', `${Math.random()}s`)
 
         div.appendChild(gem);
@@ -133,6 +142,10 @@ function renderGems(answers) {
         const question = questions[questionID] || ''
         tooltip.innerHTML = `<span class="answer-tooltip__answerer">${answerer}</span><br><div class="answer-tooltip__question">${question}</div><br>${answer}`;
         div.appendChild(tooltip);
+
+
+        const vw = Math.max(0.1, Math.min(answer.length / 800, 1.0));
+        tooltip.style.width = `${vw*100}vw`
 
         div.addEventListener('pointerenter', () => {
             tooltip.style.display = 'block';
