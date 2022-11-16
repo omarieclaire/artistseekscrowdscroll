@@ -198,21 +198,21 @@ function windowOnLoad() {
       });
   }
 
-  // function displayEndPoem() {
-  //   gsap
-  //     .timeline({
-  //       scrollTrigger: {
-  //         trigger: "#spacer6",
-  //         start: "top bottom", //first value relates to the trigger element, the second to the scroller itsef (the viewport)
-  //         end: innerHeight * 1.5,
-  //         scrub: 4, // locks animation to scrollbar - can use 1, 2, 3 etc
-  //         pinSpacing: false,
-  //       },
-  //     })
-  //     .from("#poemLine1", { y: 50, autoAlpha: 0, scale: 0.8 })
-  //     .from("#poemLine2", { y: 50, autoAlpha: 0, scale: 0.8 })
-  //     .from("#poemLine3", { y: 50, autoAlpha: 0, scale: 0.8 });
-  // }
+  function displayEndPoem() {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#spacer6",
+          start: "top bottom", //first value relates to the trigger element, the second to the scroller itsef (the viewport)
+          end: innerHeight * 1.5,
+          scrub: 4, // locks animation to scrollbar - can use 1, 2, 3 etc
+          pinSpacing: false,
+        },
+      })
+      .from("#artist", { y: 50, autoAlpha: 0, scale: 0.8 })
+      .from("#title", { y: 50, autoAlpha: 0, scale: 0.8 })
+      // .from("#poemLine3", { y: 50, autoAlpha: 0, scale: 0.8 });
+  }
 
   function doNothing() {
     //nothing at all
@@ -669,7 +669,7 @@ function windowOnLoad() {
     poemLvl.style.display = "grid";
     blueSwimmerFallAni();
     // generateTracery();
-    // displayEndPoem();
+    displayEndPoem();
 
     // marie 
 
