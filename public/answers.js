@@ -67,7 +67,7 @@ document.getElementById('findSongBtn').addEventListener('click', async () => {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            answerer,
+            answerer : answerer || 'Friend',
             answers
         })
     });
@@ -85,6 +85,10 @@ function renderGems(answers) {
 
     answers.forEach(({ id, answerer, questionID, answer, targetX, targetY }, idx) => {
 
+        if(!answer){
+            return
+        }
+
         if (!(questionID in questionss)) {
             questionss[questionID] = Math.random() * 360;
         }
@@ -95,9 +99,7 @@ function renderGems(answers) {
 
         gem.setAttribute('style', `--animationTime : ${Math.random() * 10}s; --baseHue: ${questionss[questionID]}deg;`)
 
-        // gem.src = `images/gems/${questionID}.png`
         gem.src = `images/gems/gem.png`
-
 
         const container = document.createElement('div')
         container.classList.add('answer-gem_container')
