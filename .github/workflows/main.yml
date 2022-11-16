@@ -1,17 +1,30 @@
-name: Glitch Sync
+# This is a basic workflow to help you get started with Actions
 
-# Glitch Project: https://glitch.com/edit/#!/github-action
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
   push:
-    branches:
-      - main
+    branches: [ master, thomas ]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  sync:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Sync to Glitch Project
-        uses: kanadgupta/glitch-sync@main
-        with:
-          auth-token: '7f1053b5-2e07-419f-9b7d-c236ca21d274'
-          project-id: '56a0fb9c-2056-4d07-993c-14a14e8316d1'
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    - name: Git push to glitch
+      run: |
+        cd $GITHUB_WORKSPACE
+        rm  -fr .git
+        git config --global user.name 'vbar CI'
+        git config --global user.email 'vbarworldadmin@users.noreply.github.com'
+        git init && git add -A && git commit -m "commit"
+        git remote add origin https://c5aa5b9d-8c2f-43e1-ae39-7abefcba8ac5@api.glitch.com/git/artist-seeks-crowd
+        git push -f origin master
