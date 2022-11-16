@@ -224,43 +224,43 @@ function windowOnLoad() {
 
   const songMap = {
     chaos: {
-      artist: "Klapshmock!",
-      title: "Attack Zone X",
+      artist: "Adventurer",
+      title: "Infinite curiousity drives you forward. You tinker and test. You step off the stage. You invite everyone into your practice. How are you answering the questions of your audience? How are you making space for the questions to emerge before you answer them?",
       file: "AttackZoneX.mp3",
     },
     calm: {
-      artist: "Deidre",
-      title: "Numb",
+      artist: "Alchemist",
+      title: "Wild alchemist, you dissolve yourself into binding thread. Nurturer, creator of new worlds. What is true reciprocity? Do you make space for emergent possibility? For emergent play?",
       file: "Numb.mp3",
     },
     forest: {
-      artist: "Mas Aya",
-      title: "Pasiva/Activa",
+      artist: "Wanderer",
+      title: "Hopelessly devoted to connection, you are searching for your people. Listen first. Talk later. Then listen again. Kindred heart! You will find your way, it's only a matter of time. Are you following? Or leading? Or both?",
       file: "PasivaActiva.mp3",
     },
     meadow: {
-      artist: "Orchidae",
-      title: "Love (bedroom version)",
+      artist: "Explorer",
+      title: "Hungry for change but wanting to find your own way, you have been strugging for a long time. But you will find your way.  Does your work have question marks? What does it mean to listen?",
       file: "Love.mp3",
     },
     morning: {
-      artist: "Century Egg",
-      title: "I Will Make Up a Method",
+      artist: "Jester",
+      title: "Dancing over your own swirling visions, you create in riddle and metaphor.  Your art reaches people, but you never are quite reached yourself. The jester dances alone.  Why do people clap at a show? What does it mean if the curtain never really comes down? ",
       file: "IWillMakeUpaMethod.mp3",
     },
     night: {
-      artist: "SlowPitchSound",
-      title: "You Betta Change ft. Distant Dust",
+      artist: "Warrior",
+      title: "You will find the way in your own way or you will not find it at all. The vision is clear. The note is strong. Your practice is to lead, to dare, to create. You hold the burning thread and stitch together the path as you create. Where are the openings? Where is the space for stretching?",
       file: "YouBettaChangefeaturingDistantDust.mp3",
     },
     unfold: {
-      artist: "Melody McKiver & Thomas Goguelin",
-      title: "Berlinale Duet",
+      artist: "Outlaw",
+      title: "You wander alone, breaking through your own walls to find a path. You know where you come from, you have fought for every step forward. Your art is calling for people, they just need to pass through the labyrinth and charm the minotaur (you). Why does it matter? How do you know?",
       file: "BerlinaleDuet.mp3",
     },
     cycle: {
-      artist: "Bucko Art Machine",
-      title: "PRO TESTING (3AM edit)",
+      artist: "Purist",
+      title: "Your are in conversation with yourself. You curl in, blocking your porous body from the world that birthed it. You contain multitiudes. Alone doesn't mean lonely. If an art sits alone in an empty world, is it an art? No one to see it. No one to touch it. Would you make art for an empty world?",
       file: "Pro.mp3",
     },
   };
@@ -654,11 +654,13 @@ function windowOnLoad() {
 
   var findSongBtn = document.getElementById("findSongBtn");
   findSongBtn.addEventListener("click", findSongBtnHandler);
+
   function findSongBtnHandler(event) {
-    fadeSound();
-    playSound(sendSound);
+    // fadeSound();
+    // playSound(sendSound);
 
     findSongBtn.classList.add("fade");
+
     setTimeout(function () {
       displayScrollArrow("findSongBtnArrowDiv");
     }, 3000);
@@ -668,6 +670,8 @@ function windowOnLoad() {
     blueSwimmerFallAni();
     generateTracery();
     displayEndPoem();
+
+    // marie 
 
     setTimeout(function () {
       lastLvl.style.display = "grid";
