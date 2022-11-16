@@ -132,7 +132,7 @@ function windowOnLoad() {
           pinSpacing: false,
         },
       })
-      .to("#greenSwimmer", { y: 1900, rotate: -90 });
+      .to("#greenSwimmer", { y: 1200, rotate: -90 });
   }
 
   function choiceAni(lvl, txt, image, runWhenComplete) {
@@ -198,21 +198,21 @@ function windowOnLoad() {
       });
   }
 
-  function displayEndPoem() {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#spacer6",
-          start: "top bottom", //first value relates to the trigger element, the second to the scroller itsef (the viewport)
-          end: innerHeight * 1.5,
-          scrub: 4, // locks animation to scrollbar - can use 1, 2, 3 etc
-          pinSpacing: false,
-        },
-      })
-      .from("#poemLine1", { y: 50, autoAlpha: 0, scale: 0.8 })
-      .from("#poemLine2", { y: 50, autoAlpha: 0, scale: 0.8 })
-      .from("#poemLine3", { y: 50, autoAlpha: 0, scale: 0.8 });
-  }
+  // function displayEndPoem() {
+  //   gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: "#spacer6",
+  //         start: "top bottom", //first value relates to the trigger element, the second to the scroller itsef (the viewport)
+  //         end: innerHeight * 1.5,
+  //         scrub: 4, // locks animation to scrollbar - can use 1, 2, 3 etc
+  //         pinSpacing: false,
+  //       },
+  //     })
+  //     .from("#poemLine1", { y: 50, autoAlpha: 0, scale: 0.8 })
+  //     .from("#poemLine2", { y: 50, autoAlpha: 0, scale: 0.8 })
+  //     .from("#poemLine3", { y: 50, autoAlpha: 0, scale: 0.8 });
+  // }
 
   function doNothing() {
     //nothing at all
@@ -374,61 +374,61 @@ function windowOnLoad() {
   ////////// TRACERY /////////
   ////////////////////////////
 
-  var story = {
-    sentence: [
-      '<span id="poemLine1">You are #q1#. You #q2#. You #q3#.</span><br><span id="poemLine2">What is at the bottom for you, #playerAdj# seeker?</span><br><span id="poemLine3">What would it mean to find #itemSought#?</span>',
-      // "What is at the bottom, #playerAdj# seeker? #playerDesc.capitalize# #playerVerb# in #natureDesc# #natureNoun.s#. Reaching #q2#, forever #q1#wards. "
-    ],
-    playerAdj: [
-      // "watchful",
-      "thoughtful",
-      "curious",
-      "resolute",
-      "dearest",
-      "gentle",
-      "silent",
-    ],
-    playerVerb: [
-      "watching",
-      "waiting",
-      "emerging",
-      "inviting",
-      "blooming",
-      "limitless",
-      "reaching",
-      "awaiting",
-      "eternal",
-    ],
-    natureDesc: [
-      "limitless",
-      "reaching",
-      "inviting",
-      "awaiting",
-      "still",
-      "infinite",
-      "eternal",
-    ],
+  // var story = {
+  //   sentence: [
+  //     '<span id="poemLine1">You are #q1#. You #q2#. You #q3#.</span><br><span id="poemLine2">What is at the bottom for you, #playerAdj# seeker?</span><br><span id="poemLine3">What would it mean to find #itemSought#?</span>',
+  //     // "What is at the bottom, #playerAdj# seeker? #playerDesc.capitalize# #playerVerb# in #natureDesc# #natureNoun.s#. Reaching #q2#, forever #q1#wards. "
+  //   ],
+  //   playerAdj: [
+  //     // "watchful",
+  //     "thoughtful",
+  //     "curious",
+  //     "resolute",
+  //     "dearest",
+  //     "gentle",
+  //     "silent",
+  //   ],
+  //   playerVerb: [
+  //     "watching",
+  //     "waiting",
+  //     "emerging",
+  //     "inviting",
+  //     "blooming",
+  //     "limitless",
+  //     "reaching",
+  //     "awaiting",
+  //     "eternal",
+  //   ],
+  //   natureDesc: [
+  //     "limitless",
+  //     "reaching",
+  //     "inviting",
+  //     "awaiting",
+  //     "still",
+  //     "infinite",
+  //     "eternal",
+  //   ],
 
-    q1: [], //up down
-    q2: [], //dark joy out inner
-    q3: [], // forest Meadow morning Night unfold Cyle chaos calm
-    itemSought: [],
-  };
+  //   q1: [], //up down
+  //   q2: [], //dark joy out inner
+  //   q3: [], // forest Meadow morning Night unfold Cyle chaos calm
+  //   itemSought: [],
+  // };
 
-  function randomArrayItem(array) {
-    return array[Math.floor(Math.random() * array.length)];
-  }
+  // function randomArrayItem(array) {
+  //   return array[Math.floor(Math.random() * array.length)];
+  // }
 
-  function generateTracery() {
-    var str = story.sentence[0];
-    str = str.replace('#q1#', story.q1[0]);
-    str = str.replace('#q2#', story.q2[0]);
-    str = str.replace('#q3#', story.q3[0]);
-    str = str.replace('#itemSought#', story.itemSought[0]);
-    var randomItem = randomArrayItem(story.playerAdj);
-    str = str.replace('#playerAdj#', randomItem);
-    document.getElementById("generatorTxt").innerHTML = str;
-  }
+  // function generateTracery() {
+  //   var str = story.sentence[0];
+  //   str = str.replace('#q1#', story.q1[0]);
+  //   str = str.replace('#q2#', story.q2[0]);
+  //   str = str.replace('#q3#', story.q3[0]);
+  //   str = str.replace('#itemSought#', story.itemSought[0]);
+  //   var randomItem = randomArrayItem(story.playerAdj);
+  //   str = str.replace('#playerAdj#', randomItem);
+  //   document.getElementById("generatorTxt").innerHTML = str;
+  // }
 
 
 
@@ -626,10 +626,10 @@ function windowOnLoad() {
     if (seekText.value !== "") {
       let yourHeartsDesire = seekText.value.toLowerCase();
       playerState.itemSought = yourHeartsDesire;
-      story.itemSought.push(yourHeartsDesire);
+      // story.itemSought.push(yourHeartsDesire);
     } else {
       playerState.itemSought = "peace";
-      story.itemSought.push("peace");
+      // story.itemSought.push("peace");
     }
     playSound(sendSound);
     // seekBtn.innerHTML = "received";
@@ -668,8 +668,8 @@ function windowOnLoad() {
     spacer6.style.display = "grid";
     poemLvl.style.display = "grid";
     blueSwimmerFallAni();
-    generateTracery();
-    displayEndPoem();
+    // generateTracery();
+    // displayEndPoem();
 
     // marie 
 
@@ -679,9 +679,9 @@ function windowOnLoad() {
       bottomLvl.style.display = "grid";
     }, 500);
 
-    setTimeout(function () {
-      displayScrollArrow("poemLine3");
-    }, 20000);
+    // setTimeout(function () {
+    //   displayScrollArrow("poemLine3");
+    // }, 20000);
   }
 
   ////////////////////////////
@@ -800,20 +800,20 @@ function windowOnLoad() {
       // console.log(JSON.stringify(playerState));
       if (level === 1) {
         playerState.q1 = chosenValue;
-        story.q1.push(textPhrase.innerHTML);
+        // story.q1.push(textPhrase.innerHTML);
         // only re-render if they've answered all the questions
         renderplayerState(playerState);
         renderSong(playerState);
       } else if (level === 2) {
         playerState.q2 = chosenValue;
-        story.q2.push(textPhrase.innerHTML);
+        // story.q2.push(textPhrase.innerHTML);
 
         renderplayerState(playerState);
         renderSong(playerState);
       } else if (level === 3) {
         blueSwimmerEnterAni();
         playerState.q3 = chosenValue;
-        story.q3.push(textPhrase.innerHTML);
+        // story.q3.push(textPhrase.innerHTML);
 
         renderplayerState(playerState);
         renderSong(playerState);
