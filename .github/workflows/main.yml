@@ -4,8 +4,6 @@ name: Glitch Sync
 on:
   push:
     branches:
-      - thomas
-
 jobs:
   sync:
     runs-on: ubuntu-latest
