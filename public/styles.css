@@ -980,7 +980,7 @@ textarea {
 }
 
 #spacer0 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
   background: url(images/walls/0lsp.png), url(images/walls/0rsp.png);
   background-position: top 0 left 0, top 0 right 0;
@@ -989,7 +989,7 @@ textarea {
 }
 
 #spacer1 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
   background: url(images/walls/1lsp.png), url(images/walls/1rsp.png);
   background-position: top 0 left 0, top 0 right 0;
@@ -998,7 +998,7 @@ textarea {
 }
 
 #spacer2 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
   background: url(images/walls/2lsp.png), url(images/walls/2rsp.png);
   background-position: top 0 left 0, top 0 right 0;
@@ -1007,7 +1007,7 @@ textarea {
 }
 
 #spacer3 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
   background: url(images/walls/3lsp.png), url(images/walls/3rsp.png);
   background-position: top 0 left 0, top 0 right 0;
@@ -1016,7 +1016,7 @@ textarea {
 }
 
 #spacer4 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
   background: url(images/walls/4lsp.png), url(images/walls/4rsp.png);
   background-position: top 0 left 0, top 0 right 0;
@@ -1025,7 +1025,7 @@ textarea {
 }
 
 #spacer5 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
   background: url(images/walls/5lsp.png), url(images/walls/5rsp.png);
   background-position: top 0 left 0, top 0 right 0;
@@ -1034,7 +1034,7 @@ textarea {
 }
 
 #spacer6 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
   background: url(images/walls/6lsp.png), url(images/walls/6rsp.png);
   background-position: top 0 left 0, top 0 right 0;
@@ -1043,7 +1043,7 @@ textarea {
 }
 
 #spacer7 {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
 }
 
@@ -1236,7 +1236,7 @@ textarea {
     background-repeat: no-repeat, no-repeat;
   }
   #spacer0 {
-    height: 50vh;
+    height: 100vh;
     width: 100vw;
     background: url(images/walls/0lmsp.png), url(images/walls/0rmsp.png);
     background-position: top 0 left 0, top 0 right 0;
@@ -1244,7 +1244,7 @@ textarea {
     background-repeat: no-repeat, no-repeat;
   }
   #spacer1 {
-    height: 50vh;
+    height: 100vh;
     width: 100vw;
     background: url(images/walls/1lmsp.png), url(images/walls/1rmsp.png);
     background-position: top 0 left 0, top 0 right 0;
@@ -1252,7 +1252,7 @@ textarea {
     background-repeat: no-repeat, no-repeat;
   }
   #spacer2 {
-    height: 50vh;
+    height: 100vh;
     width: 100vw;
     background: url(images/walls/2lmsp.png), url(images/walls/2rmsp.png);
     background-position: top 0 left 0, top 0 right 0;
@@ -1260,7 +1260,7 @@ textarea {
     background-repeat: no-repeat, no-repeat;
   }
   #spacer3 {
-    height: 50vh;
+    height: 100vh;
     width: 100vw;
     background: url(images/walls/3lmsp.png), url(images/walls/3rmsp.png);
     background-position: top 0 left 0, top 0 right 0;
@@ -1268,7 +1268,7 @@ textarea {
     background-repeat: no-repeat, no-repeat;
   }
   #spacer4 {
-    height: 50vh;
+    height: 100vh;
     width: 100vw;
     background: url(images/walls/4lmsp.png), url(images/walls/4rmsp.png);
     background-position: top 0 left 0, top 0 right 0;
@@ -1276,7 +1276,7 @@ textarea {
     background-repeat: no-repeat, no-repeat;
   }
   #spacer5 {
-    height: 50vh;
+    height: 100vh;
     width: 100vw;
     background: url(images/walls/5lmsp.png), url(images/walls/5rmsp.png);
     background-position: top 0 left 0, top 0 right 0;
@@ -1284,7 +1284,7 @@ textarea {
     background-repeat: no-repeat, no-repeat;
   }
   #spacer6 {
-    height: 50vh;
+    height: 100vh;
     width: 100vw;
     background: url(images/walls/6lmsp.png), url(images/walls/6rmsp.png);
     background-position: top 0 left 0, top 0 right 0;

@@ -1,13 +1,5 @@
 "use strict";
 
-  ////////////////////////////
-  ///////// new stuff //////////
-  ////////////////////////////
-
-  function showDiv() {
-    console.log("hi");
-    document.getElementById('testLvl1').style.display = "grid";
-  }
 
 
 function windowOnLoad() {
