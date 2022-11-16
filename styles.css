@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  /* font-family: 'PT Mono', monospace; */
+  font-family: 'PT Mono', monospace;
   /* line-height: 1; */
   letter-spacing: .15rem;
   margin: 0;
@@ -238,7 +238,7 @@ a:hover, a:active {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  max-width: 17vw;
+  max-width: 9vw;
   padding: .1rem;
   margin: 2rem;
   opacity: 0.7;
@@ -279,8 +279,8 @@ div.imageRow>a:last-child {
   .imageRow {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
     margin: 0;
   }
   .image {
@@ -294,7 +294,7 @@ div.imageRow>a:last-child {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    max-width: 35vw;
+    max-width: 18vw;
     padding: .3rem;
     margin: 0;
     opacity: .9;
@@ -449,12 +449,12 @@ div.imageRow>a:last-child {
   width: 6rem;
 }
 
-#greenGlow, #greenGlow2 {
+/* #greenGlow, #greenGlow2 {
   max-width: 20vw;
   margin: -3rem 0 1rem 0;
-}
+} */
 
-#tower {
+/* #tower {
   max-width: 70vw;
   width: 60vw;
 }
@@ -466,7 +466,7 @@ div.imageRow>a:last-child {
   #tower {
     max-width: 100vw;
   }
-}
+} */
 
 #plantLady, #blueSwimmer, #greenSwimmer {
   -webkit-animation: colourShift 4s ease-in-out 0s alternate infinite;
@@ -504,6 +504,7 @@ div.imageRow>a:last-child {
   opacity: 0.6;
   /* line-height: 1rem; */
   opacity: 0.7;
+  margin: 5rem 0;
 }
 
 @media (max-width: 680px), screen and (orientation: portrait) {
@@ -1320,7 +1321,6 @@ textarea {
   font-size: 1.2rem;
   margin: 1.5rem;
   opacity: 0.8;
-  /* line-height: 1.7rem; */
   color: #a9c983;
 }
 
@@ -1353,7 +1353,7 @@ h1 {
   transition: all 1s ease 0s;
   opacity: .75;
   border-radius: 7px;
-  /* font-family: 'PT Mono', monospace; */
+  font-family: 'PT Mono', monospace;
 }
 
 .btn {
@@ -1392,7 +1392,7 @@ h1 {
 input[type=submit] {
   font-size: .85rem;
   height: unset;
-  width: 5rem;
+  width: 6.75rem;
   background-color: black;
 }
 
@@ -1470,108 +1470,6 @@ input[type=submit] {
   opacity: 1.0;
 }
 
-/*************** Music Button stuff ****************************/
-
-.musiccolumn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-#musicGlow {
-  z-index: -50;
-  /* position: relative; */
-  max-width: 90vw;
-  margin-bottom: -37rem;
-}
-
-@media (max-width: 680px), screen and (orientation: portrait) {
-  #musicGlow {
-    max-width: 20rem;
-    margin-bottom: -17rem;
-  }
-}
-
-.musicButtonContainerGrandma {
-  /* position: absolute; */
-}
-
-.musicBtnContainer {
-  width: 15rem;
-  height: 15rem;
-  margin: 1.5em auto;
-  border: 0px solid #fe827b;
-  opacity: .8;
-  /* border: 5px dotted #00e8c4 */
-  border-radius: 50%;
-  background-image: url(images/lastLvl/gem-play.png);
-  background-size: cover;
-  /* position: inherit; */
-}
-
-.spin {
-  -webkit-animation: spin 4s linear infinite;
-  animation: spin 4s linear infinite;
-}
-
-.musicBtnContainerPlaying {
-  width: 15rem;
-  height: 15rem;
-  margin: 1.5em auto;
-  border: 0px solid #fe827b;
-  opacity: .9;
-  border-radius: 50%;
-  background-image: url(images/lastLvl/gem-play.png);
-  background-size: cover;
-}
-
-@media (max-width: 680px), screen and (orientation: portrait) {
-  .musicBtnContainer {
-    background-image: url(images/lastLvl/gem-play.png);
-    width: 9rem;
-    height: 9rem;
-    margin: 1.5em auto;
-    border: 0px solid #fe827b;
-    opacity: .9;
-    /* border: 5px dotted #00e8c4 */
-    border-radius: 50%;
-    background-size: cover;
-  }
-  .musicBtnContainerPlaying {
-    background-image: url(images/lastLvl/gem-play.png);
-    width: 9rem;
-    height: 9rem;
-    margin: 1.5em auto;
-    border: 0px solid #fe827b;
-    opacity: .8;
-    /* border: 5px dotted #00e8c4 */
-    border-radius: 50%;
-    background-size: cover;
-  }
-}
-
-.musicBtn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 24%;
-  height: 24%;
-  margin: 38% auto;
-  border: 0px solid #fe827b;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-image: url(images/ui/play-pause-button.png);
-  background-size: 100% auto;
-  cursor: pointer;
-}
-
-.pause {
-  background-position: 0 -100%;
-}
 
 .hide {
   display: none;
@@ -1583,10 +1481,6 @@ input[type=submit] {
   display: none;
 }
 
-/* .bg-video{
-	width: 20rem;
-	z-index: 1;
-} */
 
 .arrow {
   display: -webkit-box;

@@ -316,121 +316,6 @@ function windowOnLoad() {
     }
   }
 
-  ////////////////////////////
-  ////// music player ///////
-  ////////////////////////////
-
-  (function (d) {
-    function makeAudioBtn(id, containerId, audioPlayerId) {
-      var test = true;
-      var btn = d.querySelector(id);
-      var btnContainer = d.querySelector(containerId);
-      btnContainer.classList.remove("hide");
-
-      var audioPlayer = d.querySelector(audioPlayerId);
-      audioPlayer.classList.add("remove");
-
-      function changeSVG() {
-        btn.classList.remove("pause");
-        test = true;
-      }
-      btn.addEventListener(
-        "click",
-        function () {
-          if (test === true) {
-            musicBtnContainer1.classList.add("musicBtnContainerPlaying");
-            musicBtnContainer1.classList.add("spin");
-            btn.classList.add("pause");
-            backgroundMusic.pause();
-
-            test = false;
-            audioPlayer.volume = 0.9;
-            audioPlayer.play();
-          } else {
-            musicBtnContainer1.classList.remove("musicBtnContainerPlaying");
-            musicBtnContainer1.classList.remove("spin");
-
-            changeSVG();
-            audioPlayer.pause();
-          }
-        },
-        false
-      );
-
-      audioPlayer.addEventListener(
-        "ended",
-        function () {
-          changeSVG();
-          audioPlayer.load();
-        },
-        false
-      );
-    }
-
-    var btn1 = makeAudioBtn("#musicBtn1", "#musicBtnContainer1", "#player1");
-  })(document);
-
-  ////////////////////////////
-  ////////// TRACERY /////////
-  ////////////////////////////
-
-  // var story = {
-  //   sentence: [
-  //     '<span id="poemLine1">You are #q1#. You #q2#. You #q3#.</span><br><span id="poemLine2">What is at the bottom for you, #playerAdj# seeker?</span><br><span id="poemLine3">What would it mean to find #itemSought#?</span>',
-  //     // "What is at the bottom, #playerAdj# seeker? #playerDesc.capitalize# #playerVerb# in #natureDesc# #natureNoun.s#. Reaching #q2#, forever #q1#wards. "
-  //   ],
-  //   playerAdj: [
-  //     // "watchful",
-  //     "thoughtful",
-  //     "curious",
-  //     "resolute",
-  //     "dearest",
-  //     "gentle",
-  //     "silent",
-  //   ],
-  //   playerVerb: [
-  //     "watching",
-  //     "waiting",
-  //     "emerging",
-  //     "inviting",
-  //     "blooming",
-  //     "limitless",
-  //     "reaching",
-  //     "awaiting",
-  //     "eternal",
-  //   ],
-  //   natureDesc: [
-  //     "limitless",
-  //     "reaching",
-  //     "inviting",
-  //     "awaiting",
-  //     "still",
-  //     "infinite",
-  //     "eternal",
-  //   ],
-
-  //   q1: [], //up down
-  //   q2: [], //dark joy out inner
-  //   q3: [], // forest Meadow morning Night unfold Cyle chaos calm
-  //   itemSought: [],
-  // };
-
-  // function randomArrayItem(array) {
-  //   return array[Math.floor(Math.random() * array.length)];
-  // }
-
-  // function generateTracery() {
-  //   var str = story.sentence[0];
-  //   str = str.replace('#q1#', story.q1[0]);
-  //   str = str.replace('#q2#', story.q2[0]);
-  //   str = str.replace('#q3#', story.q3[0]);
-  //   str = str.replace('#itemSought#', story.itemSought[0]);
-  //   var randomItem = randomArrayItem(story.playerAdj);
-  //   str = str.replace('#playerAdj#', randomItem);
-  //   document.getElementById("generatorTxt").innerHTML = str;
-  // }
-
-
 
   ////////////////////////////
   ///////// player state //////////
@@ -452,7 +337,6 @@ function windowOnLoad() {
   const beginLvl = document.getElementById("beginLvl");
 
   const testLvl1 = document.getElementById("testLvl1");
-
 
   const playerQuestionLvl = document.getElementById("playerQuestionLvl");
   const questions3Lvl = document.getElementById("questions3Lvl");
@@ -668,10 +552,7 @@ function windowOnLoad() {
     spacer6.style.display = "grid";
     poemLvl.style.display = "grid";
     blueSwimmerFallAni();
-    // generateTracery();
     displayEndPoem();
-
-    // marie 
 
     setTimeout(function () {
       lastLvl.style.display = "grid";
@@ -694,18 +575,14 @@ function windowOnLoad() {
     }
     var song = songMap[playerState.q3];
 
-    var audioSrc = document.getElementById("audioSource");
-    audioSrc.setAttribute("src", `sounds/${song.file}`);
+    // var audioSrc = document.getElementById("audioSource");
+    // audioSrc.setAttribute("src", `sounds/${song.file}`);
 
     var artistText = document.getElementById("artist");
     artistText.textContent = song.artist;
 
     var titleText = document.getElementById("title");
     titleText.textContent = song.title;
-
-    // force the browser to refresh the audio source
-    var audio = document.getElementById("player1");
-    audio.load();
   }
 
   ////////////////////////////
@@ -806,14 +683,12 @@ function windowOnLoad() {
         renderSong(playerState);
       } else if (level === 2) {
         playerState.q2 = chosenValue;
-        // story.q2.push(textPhrase.innerHTML);
 
         renderplayerState(playerState);
         renderSong(playerState);
       } else if (level === 3) {
         blueSwimmerEnterAni();
         playerState.q3 = chosenValue;
-        // story.q3.push(textPhrase.innerHTML);
 
         renderplayerState(playerState);
         renderSong(playerState);
@@ -834,10 +709,6 @@ function windowOnLoad() {
   // }
   
   // displayDivOnClick();
-
-
-
-
 
 
   ////////////////////////////
@@ -1174,13 +1045,5 @@ function windowOnLoad() {
   startOverBtn.addEventListener("click", startOverBtnHandler);
   creditsBtn.addEventListener("click", creditsBtnHandler);
 }
-
-// function makeFriends(){
-//   const friendDiv = document.createElement("div");
-//   friendDiv.classList.add("friend");
-//   spacer0.appendChild(friendDiv);
-// }
-
-// makeFriends();
 
 window.addEventListener("load", windowOnLoad);
