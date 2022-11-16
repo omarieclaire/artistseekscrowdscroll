@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "prisma generate && tsc",
+    "postinstall": "prisma migrate deploy && prisma generate && prisma db seed && tsc",
     "start": "node dist index.js",
     "build": "tsc",
     "cleardb" : "prisma db execute --stdin \"DELETE FROM answer\"",
