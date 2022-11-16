@@ -24,8 +24,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         rm  -fr .git
-        git config --global user.name 'vbar CI'
-        git config --global user.email 'vbarworldadmin@users.noreply.github.com'
+        git config --global user.name 'artistseekscrowdscroll CI'
+        git config --global user.email 'artistseekscrowdscrolladmin@users.noreply.github.com'
         git init && git add -A && git commit -m "commit"
         git remote add origin https://c5aa5b9d-8c2f-43e1-ae39-7abefcba8ac5@api.glitch.com/git/artist-seeks-crowd
         git push -f origin master
