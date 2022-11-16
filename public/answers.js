@@ -22,6 +22,8 @@ const questions = {
     unfoldOrCycle: 'Is public art a dialogue? Are you in conversation with other people?'
 }
 
+const yesNoQuestions = ['upOrDown', 'darkOrJoy', 'chaosOrCalm', 'forestOrMeadow', 'outOrIn', 'morningOrNight', 'unfoldOrCycle']
+
 
 let myAnswers = []
 
@@ -40,20 +42,20 @@ textAreas.forEach(id => {
 
 document.addEventListener('answer', (e) => {
     const answerMap = {
-        'up' : 'yes',
-        'down' : 'no',
-        'dark' : 'yes',
-        'joy' : 'no',
-        'chaos' : 'yes',
-        'calm' : 'no',
-        'forest' : 'yes',
-        'meadow' : 'no',
-        'out' : 'yes',
-        'in' : 'no',
-        'morning' : 'yes',
-        'night' : 'no',
-        'unfold' : 'yes',
-        'cycle' : 'no',
+        'up': 'yes',
+        'down': 'no',
+        'dark': 'yes',
+        'joy': 'no',
+        'chaos': 'yes',
+        'calm': 'no',
+        'forest': 'yes',
+        'meadow': 'no',
+        'out': 'yes',
+        'in': 'no',
+        'morning': 'yes',
+        'night': 'no',
+        'unfold': 'yes',
+        'cycle': 'no',
     }
 
     answers[e.detail.question] = answerMap[e.detail.value];
@@ -94,7 +96,7 @@ function renderGems(answers) {
         gem.setAttribute('style', `--animationTime : ${Math.random() * 10}s; --baseHue: ${questionss[questionID]}deg;`)
 
         // gem.src = `images/gems/${questionID}.png`
-        gem.src = `images/gems/upOrDown.png`
+        gem.src = `images/gems/gem.png`
 
 
         const container = document.createElement('div')
@@ -103,6 +105,11 @@ function renderGems(answers) {
         const div = document.createElement('div');
         container.appendChild(div)
         div.classList.add('answer-gem')
+
+        if (yesNoQuestions.includes(questionID)) {
+            div.classList.add('yes-no')
+        }
+
         div.id = `answer-${id}`;
 
 
@@ -122,7 +129,7 @@ function renderGems(answers) {
         container.style.top = `${(targetY + (Math.random() - 0.5) / 5) * 100}%`
 
         container.style.setProperty('--slowMoveOffset', `${Math.random()}s`)
-        container.style.setProperty('--rotateShift',0)// `${Math.random() * 360}deg`)
+        container.style.setProperty('--rotateShift', 0)// `${Math.random() * 360}deg`)
         container.style.setProperty('--slowMoveTime', `${Math.random()}s`)
 
         div.appendChild(gem);
@@ -133,6 +140,10 @@ function renderGems(answers) {
         const question = questions[questionID] || ''
         tooltip.innerHTML = `<span class="answer-tooltip__answerer">${answerer}</span><br><div class="answer-tooltip__question">${question}</div><br>${answer}`;
         div.appendChild(tooltip);
+
+
+        const vw = Math.max(0.1, Math.min(answer.length / 800, 1.0));
+        tooltip.style.width = `${vw*100}vw`
 
         div.addEventListener('pointerenter', () => {
             tooltip.style.display = 'block';
