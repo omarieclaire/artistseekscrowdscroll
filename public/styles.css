@@ -1470,6 +1470,100 @@ input[type=submit] {
   opacity: 1.0;
 }
 
+/*************** Gems stuff ****************************/
+#lastLvl {
+  position: relative;
+  height: 100vh;
+}
+
+.answer-tooltip {
+  display: none;
+  position: absolute;
+  background: grey;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -120%);
+}
+
+
+.answer-gem_container {
+  user-select: none;
+  animation: moveAround calc(2s + 5 * var(--slowMoveTime)) cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  animation-delay: var(--slowMoveOffset);
+}
+
+.answer-gem {
+  /* user-select: none;
+  animation: moveAround calc(2s + 5 * var(--slowMoveTime)) cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  animation-delay: var(--slowMoveOffset); */
+}
+
+.answer-gem img.own {
+  user-select: none;
+}
+
+.answer-gem img.own {
+  animation: grow 3s ease-in-out infinite, hueShift var(--animationTime) ease-out infinite;
+}
+
+.gem {
+  animation: hueShift var(--animationTime) ease-out infinite;
+}
+
+.gem.own {
+  /* animation: hueShift 0.35s ease-out infinite; */
+}
+
+.answer-tooltip__answerer {
+  font-style: italic;
+}
+
+.answer-tooltip__question {
+  font-size: 0.5em;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(2)
+  }
+
+  50% {
+    transform: scale(2.15)
+  }
+
+  100% {
+    transform: scale(2)
+  }
+}
+
+
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(calc(var(--baseHue) + -10deg))
+  }
+
+  50% {
+    filter: hue-rotate(calc(var(--baseHue) + 10deg))
+  }
+
+  100% {
+    filter: hue-rotate(calc(var(--baseHue) + -10deg))
+  }
+}
+
+@keyframes moveAround {
+  0% {
+    transform: rotateZ(var(--rotateShift)) translate(0vw, -1vw)
+  }
+
+  50% {
+    transform: rotateZ(var(--rotateShift)) translate(0vw, 1vw)
+  }
+
+  100% {
+    transform: rotateZ(var(--rotateShift)) translate(0vw, -1vw)
+  }
+}
 
 .hide {
   display: none;
