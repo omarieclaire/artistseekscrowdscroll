@@ -7,12 +7,12 @@ window.answers = answers;
 
 
 const questions = {
-    upOrDown: 'Art is the closest I’ve come to feeling that we might understandeach other. Like we might actually touch. Do you feel connected through art?',
+    upOrDown: 'Do you feel more connected to people through making art?',
     qSearchForPeople: 'How do you search for your audience? How do you reach for them?',
     qMoreFans: 'Do you want a bigger audience? Or stronger ties with a smaller audience? Or is what you have enough? Why?',
     qMaterialChange: 'Could you invite people more deeply into your work? How could you make space for them to materially change your art?',
     qDeepListen: 'In what ways do you listen to your audience? How do you know when they feel moved? When they feel left behind?',
-    qTransformWork: 'How far do you go in transforming your work to be understood? How far should you go? ',
+    qTransformWork: 'How far do you go in transforming your work to be understood? How far should you go?',
     qLoseEnergy: 'Is it worth it to reach people if you lose your own artistic vigor on the way?',
     darkOrJoy: 'Does your audience cocreate art with you?',
     outOrIn: 'Are you searching for connection?',
