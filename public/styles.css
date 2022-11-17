@@ -1505,16 +1505,21 @@ input[type=submit] {
   display: none;
   position: absolute;
   background: grey;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -120%);
 }
 
+.gem__container {
+  transform: scale(0.25);
+}
 
 .answer-gem_container {
+  --gem-scaler: 0.2;
   user-select: none;
   animation: moveAround calc(2s + 5 * var(--slowMoveTime)) cubic-bezier(0.37, 0, 0.63, 1) infinite;
   animation-delay: var(--slowMoveOffset);
+  pointer-events: none;
 }
 
 .answer-gem_container:hover {
@@ -1522,9 +1527,18 @@ input[type=submit] {
 }
 
 .answer-gem {
+  pointer-events: none;
   /* user-select: none;
   animation: moveAround calc(2s + 5 * var(--slowMoveTime)) cubic-bezier(0.37, 0, 0.63, 1) infinite;
   animation-delay: var(--slowMoveOffset); */
+}
+
+.answer-gem[tooltip-visible] .answer-tooltip {
+  display: block;
+}
+
+.answer-gem .gem {
+  pointer-events: all;
 }
 
 .answer-gem img.own {
@@ -1532,15 +1546,17 @@ input[type=submit] {
 }
 
 .answer-gem.yes-no img {
-  transform: scale(0.5);
+  transform: scale(calc(0.5 * var(--gem-scaler)));
 }
 
 .answer-gem img.own {
   animation: grow 3s ease-in-out infinite, hueShift var(--animationTime) ease-out infinite;
+  
 }
 
 .gem {
   animation: hueShift var(--animationTime) ease-out infinite;
+  transform: scale(var(--gem-scaler));
 }
 
 .gem.own {
@@ -1557,15 +1573,15 @@ input[type=submit] {
 
 @keyframes grow {
   0% {
-    transform: scale(2)
+    transform: scale(calc(2 * var(--gem-scaler)))
   }
 
   50% {
-    transform: scale(2.15)
+    transform: scale(calc(2.15 * var(--gem-scaler)))
   }
 
   100% {
-    transform: scale(2)
+    transform: scale(calc(2 * var(--gem-scaler)))
   }
 }
 

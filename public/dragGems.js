@@ -37,6 +37,8 @@ function setTranslate(xPos, yPos, el) {
     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 }
 
+window.activeGem = null;
+
 gems.forEach((gem) => {
     var active = false;
     var currentX;
@@ -60,6 +62,7 @@ gems.forEach((gem) => {
             e.preventDefault();
             active = true;
             activeHandler = handler;
+            window.activeGem = gem;
         }
 
         if (e.type === "touchstart") {
@@ -77,6 +80,8 @@ gems.forEach((gem) => {
 
         active = false;
         activeHandler = null;
+        window.activeGem?.removeAttribute('tooltip-visible')
+        window.activeGem = null;
     }
 
     function drag(e) {

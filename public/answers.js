@@ -67,7 +67,7 @@ document.getElementById('findSongBtn').addEventListener('click', async () => {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            answerer : answerer || 'Friend',
+            answerer: answerer || 'Friend',
             answers
         })
     });
@@ -85,7 +85,7 @@ function renderGems(answers) {
 
     answers.forEach(({ id, answerer, questionID, answer, targetX, targetY }, idx) => {
 
-        if(!answer){
+        if (!answer) {
             return
         }
 
@@ -145,14 +145,18 @@ function renderGems(answers) {
 
 
         const vw = Math.max(0.1, Math.min(answer.length / 800, 1.0));
-        tooltip.style.width = `${vw*100}vw`
+        tooltip.style.width = `${vw * 100}vw`
 
-        div.addEventListener('pointerenter', () => {
-            tooltip.style.display = 'block';
+        gem.addEventListener('pointerenter', () => {
+            if (!window.activeGem) {
+                div.setAttribute('tooltip-visible', true);
+            }
         })
 
-        div.addEventListener('pointerleave', () => {
-            tooltip.style.display = 'none';
+        gem.addEventListener('pointerleave', () => {
+            if (!window.activeGem) {
+                div.removeAttribute('tooltip-visible')
+            }
         })
 
         document.getElementById('lastLvl').appendChild(container);
