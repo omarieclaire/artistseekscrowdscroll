@@ -1517,6 +1517,10 @@ input[type=submit] {
   animation-delay: var(--slowMoveOffset);
 }
 
+.answer-gem_container:hover {
+  animation-play-state: paused;
+}
+
 .answer-gem {
   /* user-select: none;
   animation: moveAround calc(2s + 5 * var(--slowMoveTime)) cubic-bezier(0.37, 0, 0.63, 1) infinite;
