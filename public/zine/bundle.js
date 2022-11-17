@@ -16274,7 +16274,7 @@
     const prev = document.getElementById("prev");
     const zoom = document.getElementById("zoom");
     const resetzoom = document.getElementById("resetzoom");
-    init("https://cdn.glitch.global/56a0fb9c-2056-4d07-993c-14a14e8316d1/COVE_COVOX_Zine_6x9.pdf?v=1668703988073", (err, book) => {
+    init("https://cdn.glitch.global/56a0fb9c-2056-4d07-993c-14a14e8316d1/COVE_COVOX_Zine_6x9.pdf?v=1668704126460", (err, book) => {
       if (err)
         console.error(err);
       else
