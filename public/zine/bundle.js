@@ -16266,8 +16266,8 @@
   // test-pdf.js
   function main() {
     const opts = {
-      width: 800,
-      height: 600
+      width: 1500,
+      height: 900
     };
     const app = document.getElementById("app");
     const next = document.getElementById("next");
