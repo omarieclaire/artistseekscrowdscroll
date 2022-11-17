@@ -161,7 +161,7 @@ function windowOnLoad() {
           pinSpacing: false,
         },
       })
-      .from("#questionstxt", { scale: 0.6, autoAlpha: 0, ease: "back(.5)" })
+      .from("#questionstxt1", { scale: 0.6, autoAlpha: 0, ease: "back(.5)" })
       .from("#blueSwimmer", {
         scale: 0.4,
         autoAlpha: 0,
@@ -176,15 +176,15 @@ function windowOnLoad() {
         scrollTrigger: {
           // immediateRender: false,
           trigger: "#spacer5",
-          start: "center top", //first value relates to the trigger element, the second to the scroller itsef (the viewport)
+          start: "bottom top", //first value relates to the trigger element, the second to the scroller itsef (the viewport)
           endTrigger: "#displayQuestionRow",
           end: "top center",
-          scrub: 5, // locks animation to scrollbar - can use 1, 2, 3 etc
+          scrub: 10, // locks animation to scrollbar - can use 1, 2, 3 etc
           // pinSpacing: false,
         },
       })
       .to("#blueSwimmer", {
-        y: innerHeight * 1.,
+        y: innerHeight * 1.5,
         rotate: -360,
         ease: "back(4)",
       });
@@ -252,7 +252,7 @@ function windowOnLoad() {
     },
     cycle: {
       artist: "Purist",
-      title: "Your are in conversation with yourself. You curl in, blocking your porous body from the world that birthed it. You contain multitiudes. Alone doesn't mean lonely. If an art sits alone in an empty world, is it an art? No one to see it. No one to touch it. Would you make art for an empty world?",
+      title: "You are in conversation with yourself. You curl in, blocking your porous body from the world that birthed it. You contain multitiudes. Alone doesn't mean lonely. If an art sits alone in an empty world, is it an art? No one to see it. No one to touch it. Would you make art for an empty world?",
       file: "Pro.mp3",
     },
   };
@@ -517,8 +517,8 @@ function windowOnLoad() {
       displayScrollArrow("seekBtnArrowDiv");
     }, 4000);
     questions3Lvl.style.display = "grid";
-    spacer1.style.display = "grid";
-    spacer2.style.display = "grid";
+    spacer1.style.display = "inline-block";
+    spacer2.style.display = "inline-block";
 
     // testLvl1.style.display = "grid";
 
@@ -541,14 +541,14 @@ function windowOnLoad() {
       displayScrollArrow("findSongBtnArrowDiv");
     }, 3000);
 
-    spacer6.style.display = "grid";
+    spacer6.style.display = "inline-block";
     poemLvl.style.display = "grid";
     blueSwimmerFallAni();
     displayEndPoem();
 
     setTimeout(function () {
       lastLvl.style.display = "grid";
-      spacer7.style.display = "grid";
+      spacer7.style.display = "inline-block";
       bottomLvl.style.display = "grid";
     }, 500);
 
@@ -572,9 +572,15 @@ function windowOnLoad() {
 
     var artistText = document.getElementById("artist");
     artistText.textContent = song.artist;
+    artistText.style.position = "relative"
+    artistText.style.margin = "2rem";
 
     var titleText = document.getElementById("title");
     titleText.textContent = song.title;
+    titleText.style.position = "relative"
+
+    titleText.style.margin = "2rem";
+
   }
 
   ////////////////////////////
@@ -653,7 +659,7 @@ function windowOnLoad() {
       unchosenImageDOM.classList.add("fade");
 
       link.style.display = "grid";
-      spacer.style.display = "grid";
+      spacer.style.display = "inline-block";
 
       playerState[stateKey] = chosenValue;
       // story[stateKey] = chosenValue;
