@@ -48,7 +48,19 @@ app.put(`/answers`, async (req, res) => {
 const targets = new Map();
 
 app.get("/answers", async (req, res) => {
-  const answers = await prisma.answer.findMany({});
+  const answers = await prisma.answer.findMany({
+    where: {
+      questionID: {notIn: [
+        'chaosOrCalm',
+        'darkOrJoy',
+        'upOrDown',
+        'outOrIn',
+        'unfoldOrCycle',
+        'forestOrMeadow',
+        'morningOrNight'
+      ]}
+    }
+  });
 
   answers.forEach((answer) => {
     const id = `${answer.questionID}${answer.answer}`;
